@@ -6,14 +6,15 @@
       <title>radio.brouwers</title>
 
       <style type="text/css">
-
+      body {
+        background-color: #000000;
+        position: fixed;
+      }
         * {
           margin: 0;
           padding: 0;
         }
-        body {
-          background-color: #00000
-        }
+
         .background-wrap {
 
           position: fixed;
@@ -23,7 +24,7 @@
           overflow: hidden;
         }
         #video-bg-elem {
-          position: absolute;
+          position: fixed;
           top: 0;
           left: 0;
           min-height: 100%;
@@ -36,7 +37,7 @@
           width: 100%;
           min-height: 102%;
           z-index: 1000;
-          background-color: rgba(0,0,0,0.05);
+          background-color: rgba(0,0,0,0.1);
         }
         .content h1 {
           text-align: center;
@@ -62,7 +63,7 @@
 
       <div class="background-wrap">
 
-          <video id="video-bg-elem" preload="auto" autoplay>
+          <video id="video-bg-elem" width="1080" height="600" preload="auto" autoplay muted="muted">
             <source src="boys.mp4" type="video/mp4">
             Video not supported
           </video>
