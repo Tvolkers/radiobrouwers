@@ -37,12 +37,12 @@
           width: 100%;
           min-height: 102%;
           z-index: 1000;
-          background-color: rgba(0,0,0,0.1);
+          background-color: rgba(0,0,0,0);
         }
         .content h1 {
           text-align: center;
           font-size: 65px;
-          text-transform: lowercase;
+          text-transform: uppercase;
           font-weight: 300;
           color: #fff;
           padding-top: 15%;
@@ -63,8 +63,12 @@
 
       <div class="background-wrap">
 
-          <video id="video-bg-elem" width="1080" height="600" loop="loop" preload="auto" autoplay muted="muted">
-            <source src="boys.mp4" type="video/mp4">
+          <video id="video-bg-elem" width="480" height="640" preload="auto" loop autoplay muted="muted">
+            <source src="RADIO BROUWERS.mp4" type="video/mp4">
+            <source src="RADIO BROUWERS.ogv" type="video/ogg">
+            <source src="RADIO BROUWERS.webm" type="video/webm">
+                <img id="video-bg-elem" width="480" height="640">
+                  <source src="RADIO-BROUWERS.gif" type="image/gif">
             Video not supported
           </video>
         </div>
@@ -74,7 +78,7 @@
 
       <div class="content">
 
-            <h1>radio.brouwers</h1>
+            <h1></h1>
 
 </body>
 </html>
