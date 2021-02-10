@@ -2,9 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script type="text/javascript" src="./radiosalut_files/jquery-1.11.2.min.js"></script>
 
       <title>radio.brouwers</title>
-
 
       <style type="text/css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +73,7 @@
       </script>
 </head>
 <body>
-      
+
       <div class="background-wrap">
 
           <img id="video-bg-elem" src="RADIO-BROUWERS.gif" style="width:100%">
@@ -81,13 +81,87 @@
           </img>
         </div>
 
-      <div class="content">
+        <div id="mode-sympa">
+          <div id="mode-sympa-content">
+        <table border="0" width="100%" height="100%">
+        <tbody><tr height="150px">
+          <td id="petit-fond" width="670px">
+                 <!-- <img src="scc%20radio.png" width="200" height="200" /> -->
+          </td>
+          <td>
+            <table border="0" height="100%" width="30%">
+        <tbody><tr height="800px">
 
-    <audio id="audio-player" controls>
-          <source src="https://s37.radiolize.com/radio/8150/radio.mp3?1599147089" style="width:100%">
-        </audio>
-        
+        </tr>
+        <tr height="50px">
+          <td bgcolor="#66ccff" align="center">
+            <div id="player-sympa">
+              <div id="player">
+          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-pause"><img src="./radiosalut_files/scc-pause.png" alt="pause"></a>
+          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-play"><img src="./radiosalut_files/scc-play.png" alt="play"></a>
+          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-plus"><img src="./radiosalut_files/plus.png" alt="plus"></a>
+          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-moins"><img src="./radiosalut_files/moins.png" alt="moins"></a>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+            </tbody></table>
+          </td>
+        </tr>
+        </tbody></table>
           </div>
+        </div>
+
+
+        <div id="player-cached" style="display: none;">
+             <audio autoload="true" autoplay="true" controls="true" id="player-background">
+         <source src="https://s37.radiolize.com/radio/8150/radio.mp3?1599147089" type="audio/mpeg">
+             </audio>
+           </div>
+
+<script type="text/javascript">
+
+var up = function () {
+   var volume = $("#player-background").prop("volume") + 0.2;
+   if (volume > 1) {
+      volume = 1;
+   }
+   $("#player-background").prop("volume", volume);
+}
+
+var down = function () {
+   var volume = $("#player-background").prop("volume") - 0.2;
+   if (volume < 0) {
+      volume = 0;
+   }
+   $("#player-background").prop("volume", volume);
+}
+
+var mute = function () {
+   var volume = $("#player-background").prop("volume") - 1.0;
+   if (volume < 0) {
+      volume = 0;
+   }
+   $("#player-background").prop("volume", volume);
+}
+
+var speel = function () {
+   var volume = $("#player-background").prop("volume") + 1.0;
+   if (volume > 1) {
+      volume = 1;
+   }
+   $("#player-background").prop("volume", volume);
+}
+
+/* Controles */
+$("#player-pause").click(function () { mute(); });
+$("#player-play").click(function () { $("#player-background").trigger('play'); });
+$("#player-play").click(function () { speel(); });
+$("#player-plus").click(function () { up(); });
+$("#player-moins").click(function () { down(); });
+
+  </script>
 
 </body>
 </html>
