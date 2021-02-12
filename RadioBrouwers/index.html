@@ -27,7 +27,7 @@
 
         }
 
-        #video-bg-elem {
+        #bgImg {
           position: fixed;
           top: 0;
           left: 0;
@@ -54,34 +54,40 @@
         }
 
       </style>
+    
 <script type = "text/javascript">
 
-        var image_tracker = 'r';
-
-        function change (){
-            var image = document.getElementById('video-bg-elem');
-            if (image_tracker =='r'){
-                  image.src = 'BROUWERS-PALMBOOM.gif';
-                  image_tracker = 'g';
-            var image = document.getElementById('video-bg-elem');              
-            if (image_tracker =='g'){
-                  image.src = 'MAASTRICHT.gif';
-                  image_tracker = 'm'; 
-            var image = document.getElementById('video-bg-elem');              
-            if (image_tracker =='m'){
-                  image.src = 'RADIO-BROUWERS.gif';
-                  image_tracker = 'r'; 
-              
-        }
-            setInterval ('change()', 1);
-
+      var i = 0;
+      var images = [];
+      var time = 1000;
+  
+ // Image List
+  images[0] = 'RADIO-BROUWERS.gif';
+  images[1] = 'BROUWERS-PALMBOOM.gif';
+  images[2] = 'MAASTRICHT.gif';
+  
+  // Change Image
+  function changeImg(){ 
+    document.bgImg.src = images[i];
+    
+    if(i < images.length - 1){
+      i++;
+    } else {
+      i = 0;
+    }
+    
+    setTimeout("changeImg()", time);
+  }
+  
+  window.onload = changeImg;
+             
       </script>
 </head>
 <body>
 
       <div class="background-wrap">
 
-          <img id="video-bg-elem" src="RADIO-BROUWERS.gif" style="width:100%">
+          <img id="bgImg" src="RADIO-BROUWERS.gif" style="width:100%">
             Video not supported
           </img>
         </div>
