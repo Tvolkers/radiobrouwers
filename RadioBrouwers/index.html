@@ -88,8 +88,8 @@ function loadNowPlaying() {
             nowPlaying = np;
             npline = (nowPlaying['now_playing']);
             song = (npline['song'])
-            text = (song['text'])
-            console.log(text)
+            nowplayingtext = (song['text'])
+            console.log(nowplayingtext)
 
             nowPlayingTimeout = setTimeout(loadNowPlaying, 15000);
         }
