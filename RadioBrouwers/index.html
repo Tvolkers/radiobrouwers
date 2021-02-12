@@ -5,6 +5,7 @@
     <script type="text/javascript" src="./radiosalut_files/jquery-1.11.2.min.js"></script>
 
       <title>radio.brouwers</title>
+      <link rel="shortcut icon" type="image/png" href="favicon.ico/ms-icon-310x310.png">
 
       <style type="text/css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,21 +57,33 @@
       </style>
 <script type = "text/javascript">
 
-        var image_tracker = 'r';
+      var i = 0;
+      var images = [];
+      var time = 300000;
+      var image = document.getElementById('video-bg-elem')
 
-        function change (){
-            var image = document.getElementById('video-bg-elem');
-            if (image_tracker =='r'){
-                  image.src = 'BROUWERS-PALMBOOM.gif';
-                  image_tracker = 'g';
-            }else{
-                image.src = 'RADIO-BROUWERS.gif';
-                image_tracker = 'r';
-            }
-        }
-            setInterval ('change()',300000);
+ // Image List
+  images[0] = 'RADIO-BROUWERS.gif';
+  images[1] = 'BROUWERS-PALMBOOM.gif';
+  images[2] = 'MAASTRICHT.gif';
+
+  // Change Image
+  function changeImg(){
+    document.getElementById('video-bg-elem').src = images[i];
+
+    if(i < images.length - 1){
+      i++;
+    } else {
+      i = 0;
+    }
+
+    setTimeout("changeImg()", time);
+  }
+
+  window.onload = changeImg;
 
       </script>
+
 
 <script type = "text/javascript">
 
@@ -111,7 +124,7 @@ $(function() {
       <div class="background-wrap">
 
           <img id="video-bg-elem" src="RADIO-BROUWERS.gif" style="width:100%">
-            Video not supported
+            Bas is een ongelofelijke lul
           </img>
         </div>
 
