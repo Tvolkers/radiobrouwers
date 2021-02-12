@@ -27,7 +27,7 @@
 
         }
 
-        #bgImg {
+        #video-bg-elem {
           position: fixed;
           top: 0;
           left: 0;
@@ -54,43 +54,63 @@
         }
 
       </style>
-    
 <script type = "text/javascript">
 
-      var i = 0;
-      var images = [];
-      var time = 3000;
-  
- // Image List
-  images[0] = 'RADIO-BROUWERS.gif';
-  images[1] = 'BROUWERS-PALMBOOM.gif';
-  images[2] = 'MAASTRICHT.gif';
-  
-  // Change Image
-  function changeImg(){ 
-    document.bgImg.src = images[i];
-    
-    if(i < images.length - 1){
-      i++;
-    } else {
-      i = 0;
-    }
-    
-    setTimeout("changeImg()", time);
-  }
-  
-  window.onload = changeImg;
-             
+        var image_tracker = 'r';
+
+        function change (){
+            var image = document.getElementById('video-bg-elem');
+            if (image_tracker =='r'){
+                  image.src = 'BROUWERS-PALMBOOM.gif';
+                  image_tracker = 'g';
+            }else{
+                image.src = 'RADIO-BROUWERS.gif';
+                image_tracker = 'r';
+            }
+        }
+            setInterval ('change()',300000);
+
       </script>
-    
-    <img name="bgImg">
-    
+
+<script type = "text/javascript">
+
+var nowPlayingTimeout;
+var nowPlaying;
+
+function loadNowPlaying() {
+    $.ajax({
+        cache: false,
+        dataType: "json",
+        url: 'https://s37.radiolize.com/api/nowplaying/radio_brouwers',
+        success: function(np) {
+            // Do something with the Now Playing data.
+
+            nowPlaying = np;
+            npline = (nowPlaying['now_playing']);
+            song = (npline['song'])
+            text = (song['text'])
+            console.log(text)
+
+            nowPlayingTimeout = setTimeout(loadNowPlaying, 15000);
+        }
+    }).fail(function() {
+        nowPlayingTimeout = setTimeout(loadNowPlaying, 30000);
+    });
+}
+
+$(function() {
+    loadNowPlaying();
+});
+
+</script>
+
+
 </head>
 <body>
 
       <div class="background-wrap">
 
-          <img id="bgImg" style="width:100%">
+          <img id="video-bg-elem" src="RADIO-BROUWERS.gif" style="width:100%">
             Video not supported
           </img>
         </div>
@@ -111,10 +131,10 @@
           <td bgcolor="#1F1E1E" align="center">
             <div id="player-sympa">
               <div id="player">
-          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-pause"><img src="./radiosalut_files/pauze.png" alt="pause"></a>
-          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-play"><img src="./radiosalut_files/speel.png" alt="play"></a>
-          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-plus"><img src="./radiosalut_files/plus2.png" alt="plus"></a>
-          <a href="file:///Users/charlesortjens/Dropbox/Mijn%20Mac%20(MacBook%20Pro%20van%20Charles)/Downloads/radiobrouwers-master/RadioBrouwers/index.html#" id="player-moins"><img src="./radiosalut_files/min.png" alt="moins"></a>
+          <a href="https://www.radiobrouwers.nl/#" id="player-pause"><img src="./radiosalut_files/pauze.png" alt="pause"></a>
+          <a href="https://www.radiobrouwers.nl/#" id="player-play"><img src="./radiosalut_files/speel.png" alt="play"></a>
+          <a href="https://www.radiobrouwers.nl/#" id="player-plus"><img src="./radiosalut_files/plus2.png" alt="plus"></a>
+          <a href="https://www.radiobrouwers.nl/#" id="player-moins"><img src="./radiosalut_files/min.png" alt="moins"></a>
               </div>
             </div>
           </td>
@@ -179,4 +199,3 @@ $("#player-moins").click(function () { down(); });
 
 </body>
 </html>
-
