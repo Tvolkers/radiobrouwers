@@ -63,12 +63,17 @@
             if (image_tracker =='r'){
                   image.src = 'BROUWERS-PALMBOOM.gif';
                   image_tracker = 'g';
+              
+            if (image_tracker =='g'){
+                  image.src = 'MAASTRICHT.gif';
+                  image_tracker = 'm'; 
+              
             }else{
                 image.src = 'RADIO-BROUWERS.gif';
                 image_tracker = 'r';
             }
         }
-            setInterval ('change()',300000);
+            setInterval ('change()',15);
 
       </script>
 </head>
