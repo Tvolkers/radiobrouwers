@@ -68,10 +68,10 @@
                   image.src = 'MAASTRICHT.gif';
                   image_tracker = 'm'; 
               
-            }else{
-                image.src = 'RADIO-BROUWERS.gif';
-                image_tracker = 'r';
-            }
+            if (image_tracker =='m'){
+                  image.src = 'RADIO-BROUWERS.gif';
+                  image_tracker = 'r'; 
+              
         }
             setInterval ('change()', 1);
 
