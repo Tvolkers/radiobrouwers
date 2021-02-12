@@ -103,6 +103,8 @@ function loadNowPlaying() {
             song = (npline['song'])
             nowplayingtext = (song['text'])
             console.log(nowplayingtext)
+            var nowplayingsong = nowplayingtext;
+            document.getElementById("liedje").innerHTML = nowplayingsong;
 
             nowPlayingTimeout = setTimeout(loadNowPlaying, 15000);
         }
@@ -119,7 +121,7 @@ $(function() {
 
 
 </head>
-<body>
+<body onload="loadNowPlaying()">
 
       <div class="background-wrap">
 
@@ -138,6 +140,12 @@ $(function() {
           <td>
             <table border="0" height="100%" width="30%">
         <tbody><tr height="450px">
+          
+          <tr height="50px">
+            <td width="auto" bgcolor="#ffffe6" align="center">
+              <h1><span class="en-cours" id="liedje"></span></h1>
+            </td>
+		</tr>
 
         </tr>
         <tr height="80px">
