@@ -337,7 +337,7 @@
 
     <div id="player-cached" style="display: none;">
            <audio autoload="true" autoplay="true" controls="true" id="player-background">
-       <source src="http://camellot.nl:9000/geil.mp3" type="audio/mpeg">
+       <source src="http://camellot.nl:9000/geil.mp3">
            </audio>
       </div>
 
@@ -382,7 +382,7 @@
               $.ajax({
                   cache: false,
                   dataType: "json",
-                  url: 'https://s37.radiolize.com/api/nowplaying/radio_brouwers',
+                  url: 'http://camellot.nl:88/api/nowplaying/radio_brouwers',
                   success: function(np) {
                       // Do something with the Now Playing data.
 
