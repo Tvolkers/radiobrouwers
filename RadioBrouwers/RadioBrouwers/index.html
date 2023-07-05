@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="./radiosalut_files/jquery-1.11.2.min.js"></script>
+  <title>radio.brouwers</title>
+  <link rel="shortcut icon" type="image/png" href="favicon.ico/ms-icon-310x310.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- <script src="getDate.js"></script> -->
+
+</head>
+
+<body onload="loadNowPlaying()">
+
+  <div class="grid-container">
+    <div class="grid-item grid-item-1">
+      <div class="mmetadata">
+        <td width="auto" bgcolor="#ffffe6">
+            <h2><span class="men-cours" id="liedje"></span></h2>
+        </td>
+      </div>
+    </div>
+    <div class="grid-item grid-item-2">
+      <h1>Programma</h1>
+      <table class ="output"> </table>
+      <!-- <p>Met elke dag... Het weerbericht, live vanaf de Erasmusbrug. Vlaamse horoscopen, met dank aan Spijt en Vrees weekblad.</p> -->
+      <script src="//rss.bloople.net/?url=https%3A%2F%2Fdailycannon.com%2Ffeed%2F&detail=-1&limit=4&showtitle=false&type=js"></script>
+    </div>
+    <div class="grid-item grid-item-3">
+      <a href="#" id="mplayer-play"><img src="./img/speel.png" class="buttonRotate" width = 100px, alt="play"></a>
+      <a href="#" id="mplayer-pause"><img src="./img/pauze.png" class="buttonRotate" width = 100px, alt="pause"></a>
+      <a href="#" id="mplayer-plus"><img src="./img/plus.png" class="buttonRotate" width = 100px, alt="plus"></a>
+      <a href="#" id="mplayer-moins"><img src="./img/min.png" class="buttonRotate" width = 100px, alt="moins"></a>
+    </div>
+    <div class="grid-item grid-item-4">
+      <img src="TVBROUWERS.gif" height = 300px></img>
+      <!-- <img id="video-bg-elem" style width="inherit" height="inherit">
+        </img> -->
+    </div>
+    <div class="grid-item grid-item-5">
+      <div id="logo">
+            <img src="./img/brouwers.png" id="rotate">
+      </div>
+      <div id="rpm">
+        <button onclick="myFunction()"> 33 </button><br>
+        <button onclick="myFunction1()"> 45 </button>
+      </div>
+      <div id="camelnet">
+            <img src="./img/camelnet.png" width = 350px>
+      </div>
+    </div>
+  </div>
+  <div id="player-cached" style="display: none;">
+      <audio autoload="true" autoplay="true" controls="true" id="player-background">
+          <source src="https://radiocamel.nl/listen/radio_brouwers/geil.mp3">
+      </audio>
+  </div>
+
+
+</body>
+  <script src="bg_change.js"></script>
+  <script src="knoppen.js"></script>
+  <script src="bg_change.js"></script>
+  <script src="get_displayMetadata.js"></script>
+  <script src="rpm_funcrion.js"></script>
+  <script src="getSheet.js"></script>
+  <script type="text/javascript">
+      $(".buttonRotate").click(function () {
+        $(this).toggleClass("down");
+    })
+  </script>
+</html>
