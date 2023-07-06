@@ -30,9 +30,17 @@
       font-family: 'Bungee Shade';
       font-size: 22px;
     }
-    #th{
+    h3 {
+      font-family: cursive;
+      font-size: 15px;
+    }
+    h4 {
+      font-family: cursive;
+      font-size: 15px;
+    }
+    td{
       font-family: sans-serif;
-      font-size: 22px;
+      font-size: 18px;
       font-style: oblique;
     }
 @media only screen and (max-width:1350px) {
@@ -149,7 +157,7 @@
       padding-bottom: 3%;
       padding-right: 4%;
 
-      border-radius: 5px;
+      border-radius: 20%;
       box-shadow: 0 3px 10px 5px
                   rgba(0,0,0, .125);
     }
